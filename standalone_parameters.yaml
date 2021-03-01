@@ -1,0 +1,36 @@
+parameter_defaults:
+  CloudName: 10.174.60.2
+  CloudDomain: radware.com
+  TimeZone: 'Asia/Jerusalem'
+  ControlPlaneStaticRoutes: []
+  Debug: true
+  DeploymentUser: stack
+  DnsServers:
+    - 10.221.1.47
+    - 10.221.1.48
+  DockerInsecureRegistryAddress:
+    - 10.174.60.2:8787
+  NeutronPublicInterface: eno2
+  NeutronDnsDomain: localdomain
+  NeutronBridgeMappings: datacentre:br-ctlplane
+  NeutronPhysicalBridge: br-ctlplane
+  StandaloneEnableRoutedNetworks: false
+  StandaloneHomeDir: /home/stack/templates_dan
+  StandaloneLocalMtu: 1500
+  NeutronPhysicalDevMapping: ['sriovnet1:enp4s0f0','sriovnet2:enp4s0f1','sriovnet1:enp6s0f0','sriovnet2:enp6s0f1']
+  NeutronTunnelType: ''
+  NeutronNetworkVLANRanges: 'datacentre:1:1000,sriovnet1,sriovnet2'
+  NeutronSriovNumVFs: 'enp4s0f0:8,enp4s0f1:8,enp6s0f0:8,enp6s0f1:8'
+  NovaPCIPassthrough:
+    - devname: "enp4s0f0"
+      trusted: "true"
+      physical_network: "sriovnet1"
+    - devname: "enp4s0f1"
+      trusted: "true"
+      physical_network: "sriovnet2"
+    - devname: "enp6s0f0"
+      trusted: "true"
+      physical_network: "sriovnet1"
+    - devname: "enp6s0f1"
+      trusted: "true"
+      physical_network: "sriovnet2"
